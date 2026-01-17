@@ -3,17 +3,17 @@ import { isUndefined } from './utils/isDefined.js';
 
 // Define constants for your Ducky keyboard
 // You can find these by running npx node-hid
-const DUCKY_VENDOR_ID = 0x051d; // Example Vendor ID
-const DUCKY_PRODUCT_ID = 0x0002; // Example Product ID
+const DUCKY_VENDOR_ID = 12851; // 0x3233 in hex
+const DUCKY_PRODUCT_ID = 24; // 0x0018 in hex
 
 const connectToKeyboard = () => {
   const allDevices = devices();
 
-  console.log(JSON.stringify(allDevices));
-
-  // Using .find() with your strict type-checking
   const keyboardInfo = allDevices.find(
-    (_) => _.vendorId === DUCKY_VENDOR_ID && _.productId === DUCKY_PRODUCT_ID,
+    (_) =>
+      _.vendorId === DUCKY_VENDOR_ID &&
+      _.productId === DUCKY_PRODUCT_ID &&
+      _.usagePage === 65308,
   );
 
   if (isUndefined(keyboardInfo)) {
