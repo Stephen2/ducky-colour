@@ -22,9 +22,20 @@ export default defineConfig(
       },
     },
     plugins: {
+      '@typescript-eslint': tseslint.plugin,
       prettier: eslintPluginPrettier,
     },
     rules: {
+      '@typescript-eslint/strict-boolean-expressions': [
+        'error',
+        {
+          allowNullableObject: false,
+        },
+      ],
+      'padding-line-between-statements': [
+        'error',
+        { blankLine: 'always', prev: '*', next: 'return' },
+      ],
       'prettier/prettier': 'error',
     },
   },
