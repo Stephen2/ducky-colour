@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Stephen2/ducky-colour/issues"
   },
-  "homepage": "https://github.com/Stephen2/ducky-colour#readme"
+  "homepage": "https://github.com/Stephen2/ducky-colour#readme",
+  "devDependencies": {
+    "@tsconfig/node24": "^24.0.4"
+  }
 }
